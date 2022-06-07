@@ -1,0 +1,14 @@
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  name: "mlflow-wtd-io-service"
+  namespace: "mlflow-wtd-io"
+spec:
+  type: "ClusterIP"
+  selector:
+    component: "mlflow"
+  ports:
+    - port: 80
+      targetPort: 80
+...

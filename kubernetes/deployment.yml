@@ -1,0 +1,26 @@
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "mlflow-wtd-io-deployment"
+  namespace: "mlflow-wtd-io"
+spec:
+  selector:
+    matchLabels:
+      component: "mlflow"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        component: "mlflow"
+    spec:
+      containers:
+        - name: "mlflow-wtd-io"
+          image: "localhost:5000/wtd-mlflow"
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "250m"
+          ports:
+            - containerPort: 80
+...
